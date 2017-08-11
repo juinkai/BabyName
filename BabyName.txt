@@ -1,0 +1,48 @@
+< data type >
+surname is a pick list (length is limited)
+middlename is a edit box
+firstname is a edit box
+memo is for convenience
+
+< flow >
+memo always gets udpated
+(1) surname -> middlename -> firstname
+middlename -> surname -> (1)
+surname -> middlename
+surname -> firstname 
+firstname -> middlename
+middlename -> firstname
+every action will update memo
+surname will update middlename and firstname
+middlename and firstname will update each other
+
+< functionality >
+main ---
+save to file ¦n¦W¦r.txt
+upgrade software (version track)
+sync dictionary (version track) - XlsToCsv.vbs
+log - date time of run record
+watchdog - refreshing caption
+
+<API>
+int append_single(char word, int stroke);
+assign_XML(...);
+assign_JSON(...);
+assign_CSV(...);  /* check existence and validation */
+TStringList *getWordByStroke(int stroke);
+void AI(int surname_strokes, int firstname_strokes);  /* yes or no */
+
+< issue >
+BCB 6.0 does not support unicode
+cannot read utf8 file
+surname must allow two words
+
+< note >
+combobox box is not length-limited, DropDownCount.
+TStringList.Find(AnsiString) but not in TList class.
+
+< source >
+meodict provides XLS with words and strokes, convert it into CSV.
+
+< logic >
+¤R¶§©m¦W±K½X
